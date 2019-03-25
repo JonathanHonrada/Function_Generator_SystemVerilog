@@ -9,8 +9,8 @@ The purpose of this project is to implement a function generator by adding multi
 ## Equipment Required
 * Basys 3 Board
 * Low Pass RC Filter (fC ~ 40 Hz)
-- 1 0.1uF Capacitor
-- 5 10kΩ Resistors
+    * 1 0.1uF Capacitor
+    * 5 10kΩ Resistors
 * Jumper Wires
 * Oscilloscope
 * Breadboard 
