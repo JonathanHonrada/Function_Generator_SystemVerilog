@@ -7,10 +7,10 @@ The purpose of this project is to implement a function generator by adding multi
 ![Fourier Series](https://i.imgur.com/vigmnXx.png)
 
 ## Equipment Required:
--- Basys 3 Board
--- Low Pass RC Filter (fC ~ 40 Hz)
--- 1 0.1uF Capacitor
--- 5 10kΩ Resistors
--- Jumper Wires
--- Oscilloscope
--- Breadboard 
+- Basys 3 Board
+- Low Pass RC Filter (fC ~ 40 Hz)
+- 1 0.1uF Capacitor
+- 5 10kΩ Resistors
+- Jumper Wires
+- Oscilloscope
+- Breadboard 
