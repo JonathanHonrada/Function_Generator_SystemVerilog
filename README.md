@@ -1,5 +1,5 @@
 # Function_Generator_SystemVerilog
-###Creators: Jonathan Honrada and Rocio Sanchez
+##### Creators: Jonathan Honrada and Rocio Sanchez
 ---
 ##Summary
 The purpose of this project is to implement a function generator by adding multiple sine
