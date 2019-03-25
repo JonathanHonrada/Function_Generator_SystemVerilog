@@ -1,7 +1,7 @@
 # Function_Generator_SystemVerilog
-##### Creators: Jonathan Honrada and Rocio Sanchez
+#### Creators: Jonathan Honrada and Rocio Sanchez
 ---
-##Summary
+## Summary
 The purpose of this project is to implement a function generator by adding multiple sine
 and cosine waves digitally using the Fourier series, creating 4 different preset wave-types like
 sine, triangle, square and sawtooth waves. This digital periodic wave is then converted from a digital
