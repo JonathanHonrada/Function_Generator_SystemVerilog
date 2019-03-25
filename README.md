@@ -7,13 +7,13 @@ The purpose of this project is to implement a function generator by adding multi
 ![Fourier Series](https://i.imgur.com/vigmnXx.png)
 
 ## Equipment Required
-- Basys 3 Board
-- Low Pass RC Filter (fC ~ 40 Hz)
+* Basys 3 Board
+* Low Pass RC Filter (fC ~ 40 Hz)
 - 1 0.1uF Capacitor
 - 5 10kΩ Resistors
-- Jumper Wires
-- Oscilloscope
-- Breadboard 
+* Jumper Wires
+* Oscilloscope
+* Breadboard 
 
 ## Circuit Architecture
 In this project, we will be using the modules from the OTTER MCU in addition with the external hardware of the function generator coded in SystemVerilog to control the signal generation. Please view the elaborated design of the function generator modules in the Vivado design suite to develop a better understanding of how this project works. **_NOTE:_** The verilog files for the OTTER MCU have not been provided.
