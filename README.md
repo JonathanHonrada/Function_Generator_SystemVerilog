@@ -29,5 +29,41 @@ The first major module in the function generator hardware is the **eight_bit_cos
 ### Controller Module and Scaling Module
 The **Func_Gen_Controller** module controls the output waveform via scaling. These scaling values are stored in registers, with different sets of values depending on which wave type the user wishes to generate. This wave type is a 3-bit input controlled by the top button which cycles through the following waveforms: sine, sawtooth, square, triangle, and custom. Every individual harmonic of each digitally-generated sine and cosine waves has a specific scalar value that they will be multiplied by, and these values have been calculated using formulas that can be found on the Wolfram Alpha website. This controller module also has an input for custom waveforms designed specifically to receive values that are inputted from the switches and sent through the OTTER. The bitmapping of these values can be seen in the source code.
 
-The **Scaler_new module receives** the 8-bit scaling values from the controller value and multiplies each sine and cosine wave their respective values. There are eight of these modules in this design, one for each harmonic. The 8-bit scaling value is multiplied with the 8-bit sine value
-to generate a 16-bit scaled value.
+The **Scaler_new module receives** the 8-bit scaling values from the controller value and multiplies each sine and cosine wave their respective values. There are eight of these modules in this design, one for each harmonic. The 8-bit scaling value is multiplied with the 8-bit sine value to generate a 16-bit scaled value.
+
+### Addition and the PWM Generator
+After all the digital sine and cosine values have been scaled, they are added together. This final 16-bit value is then taken as an input to the PWM generator. This PWM generator converts this digital periodic waveform into a PWM signal which is then outputted from the Basys3 board (pin JC1). This output can be set to a different port my modifying the constraints if so desired.
+
+### Low-Pass RC Filter
+This filter is used to convert the PWM signal from the Basys3 into an analog periodic waveform. Referring to the figure below, the PWM input is sent to the VIN port and the output waveform is measured with an oscilloscope from the VOUT  port. The ground used is the ground pin found on the Basys3. The low pass RC filter we used utilized 5 10kΩ arranged to create an equivalent resistance of 35kΩ (2 in parallel in series with 3). The capacitor used was a 0.1uF capacitor. Either an electrolytic or ceramic capacitor will work, but be mindful of the polarity. This arrangement results in a cutoff frequency of 45 Hz, which we determined experimentally by varying resistance and finding which setup would produce the best looking output waveforms.
+
+![RC Low Pass](https://i.imgur.com/EvG6OUe.png)
+
+## Physical Setup for Measurement
+The PWM output signal has been wired to the PMOD port pin JC1 in the constraints file for this implementation. This pin assignment is aribtrary and can be changed to a different pin if so desired. In the figures below, this is the header where that the red wire is plugged into. The orange wire is the connected to the ground of this circuit. It can be seen that this ground wire is tied to the RC filter ground (just after the capacitor) as well as the scope probe ground. The red wire carries the PWM signal to the breadboard on the right, and the output is measured from the black wire coming from the board (right after the resistive network and before the capacitor). 
+
+![Physical Set Up 1](https://i.imgur.com/bQWsLIm.png)
+
+![Physical Set Up 2](https://i.imgur.com/cqpkFIC.png)
+
+We have also provided screenshots of some of our various output waveforms measured on the osiclloscope.
+
+![Oscope 1](https://i.imgur.com/pU77jih.png)
+
+![Oscope 2](https://i.imgur.com/IPjqNpO.png)
+
+![Oscope3](https://i.imgur.com/wFI8SAz.png)
+
+## References
+1. https://www.compadre.org/advlabs/bfy/files/BFYHandout.pdf
+      * PWM Driver Verilog Code
+      * PWM Conversion Time Information
+
+2. https://www.instructables.com/id/FPGA-Semi-Arbitrary-Function-Generator/
+      * Our Project Based on Their VHDL Design 
+
+3. https://daycounter.com/Calculators/Sine-Generator-Calculator.phtml
+      * Look Up Table Generator for Sine and Cosine Functions
+
+4. http://mathworld.wolfram.com/FourierSeries.html
+      * Fourier Series Coefficients Derivations
