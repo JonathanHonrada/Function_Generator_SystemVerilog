@@ -62,11 +62,14 @@ We have also provided screenshots of some of our various output waveforms measur
       * PWM Driver Verilog Code
       * PWM Conversion Time Information
 
+
 2. https://www.instructables.com/id/FPGA-Semi-Arbitrary-Function-Generator/
       * Our Project Based on Their VHDL Design 
 
+
 3. https://daycounter.com/Calculators/Sine-Generator-Calculator.phtml
       * Look Up Table Generator for Sine and Cosine Functions
+
 
 4. http://mathworld.wolfram.com/FourierSeries.html
       * Fourier Series Coefficients Derivations
