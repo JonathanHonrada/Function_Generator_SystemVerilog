@@ -2,9 +2,12 @@
 #### Creators: Jonathan Honrada and Rocio Sanchez
 -----
 ## Summary
-The purpose of this project is to implement a function generator by adding multiple sine and cosine waves digitally using the Fourier series, creating 4 different preset wave-types like sine, triangle, square and sawtooth waves. This digital periodic wave is then converted from a digital signal to an analog signal using a Pulse Width Modulation (PWM) driver and RC low pass filter. Users can pass input parameters (scaling individual harmonics of sines and cosines up to the 8th harmonic) through the OTTER MCU to create custom waveforms. Below you can see the Fourier Series equation used to get the coefficients and frequency using scaled sine and cosine waves.
+The purpose of this project is to implement a function generator using the Fourier series, creating 4 different preset wave-types like sine, triangle, square and sawtooth waves. This comes from the idea that any arbitrary periodic waveform can be by a summation of scaled sine and cosine functions. This digital periodic waveform is then converted from a digital signal to an analog signal using a Pulse Width Modulation (PWM) driver and RC low pass filter. Below you can see the Fourier Series equation used to get the coefficients and frequency using scaled sine and cosine waves. 
 
 ![Fourier Series](https://i.imgur.com/vigmnXx.png)
+
+Users can pass input parameters to scale individual harmonics of sines and cosines up to the 8th harmonic through the OTTER MCU (based on RV32I instruction set) to create custom waveforms. This control method is programmed with a RISC-V assembly interrupt service routine. 
+
 
 ## Equipment Required
 * Basys 3 Board
@@ -46,7 +49,7 @@ The PWM output signal has been wired to the PMOD port pin JC1 in the constraints
 
 ![Physical Set Up 2](https://i.imgur.com/cqpkFIC.png)
 
-We have also provided screenshots of some of our various output waveforms measured on the osiclloscope.
+We have also provided screenshots of some of our various output waveforms measured on the osiclloscope. There is a lot of noise which could be due to switching noise from the filter or something on the digital side of the circuit.
 
 ![Oscope 1](https://i.imgur.com/pU77jih.png)
 
